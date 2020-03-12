@@ -1,0 +1,39 @@
+*:focus {
+    outline: none;
+}
+
+// Links 
+a {
+    text-decoration: none;
+}
+a:link {
+    color: $white;
+    text-shadow: map-get($space_colors ,'dark') 0 0 2px;
+}
+a:visited {
+    color: $light;
+    text-shadow: map-get($space_colors ,'darkest') 0 0 3px;
+}
+a:hover {
+    color: $white;
+    text-shadow: map-get($space_colors ,'darkest') 0 0 2px;
+    animation: visited_href 2.5s ease-in-out 1s normal forwards;
+}
+@keyframes visited_href {
+    0%   { 
+        color: $white;
+        text-shadow: map-get($space_colors ,'darkest') 0 0 2px;
+    }
+    100% { 
+        color: $black;
+        text-shadow: map-get($space_colors ,'lightest') 0 0 6px;
+    }
+}
+a:active {
+    color: $white;
+    text-shadow: map-get($space_colors ,'dark') 0 0 2px;
+}
+a:focus, a:focus-within {
+    color: $black;
+    text-shadow: map-get($space_colors ,'lighter') 0 0 5px;
+}

@@ -1,0 +1,29 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    & * {
+        &::-webkit-scrollbar {
+            width: 0.15rem;
+            height: 0.15rem;
+        }
+        &::-webkit-scrollbar-track {
+            background: $dark;
+        }    
+        &::-webkit-scrollbar-thumb {
+            background: $white;
+        }
+    }
+    & > header {
+        height: 10vh;
+    }
+    & > div.content {
+        height: 90vh;
+        width: 100vw;
+    }
+} 
+
+
+

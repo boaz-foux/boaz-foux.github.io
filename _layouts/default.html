@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <!-- HEAD  -->
+  {% include head.html %}
+  <body>
+    <!-- NAV -->
+    {% include nav.html %}
+    
+    <!-- HEADER -->
+    {% include header.html %}
+    <div class="content">
+      {{paginator.page}}
+      {{ content }}
+    </div>
+     <!-- FOOTER -->
+    {% include footer.html %}
+  </body>
+</html>
