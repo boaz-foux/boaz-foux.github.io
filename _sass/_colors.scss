@@ -1,0 +1,22 @@
+$white: #fff;
+$light: #cdcdcd;
+$mid_grey: #4e4e4e;
+$dark: #343a40;
+$black: #000;
+
+$space_colors: (
+    lightest:#98cea6, 
+    lighter:#6289aa,
+    light:#ab59b6,
+    base: #df1ddf,
+    dark: #812981,
+    darker: #411541,
+    darkest: #351135,
+);
+
+html, body  {
+    @media only screen {
+        background-color: $black;
+        color: $light;
+    }
+}

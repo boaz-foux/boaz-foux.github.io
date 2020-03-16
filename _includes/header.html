@@ -1,0 +1,16 @@
+
+
+<header>
+    <div>
+        {% if page.title %}
+        <h2>{{ page.title }}</h2>
+        {% else %}
+        <img class="logo" 
+                src="{{  '/css/images/header-image.png' | prepend: site.baseurl | prepend: site.url }}" 
+                alt="header image" >
+                <h1>
+                    {{site.title}}
+                </h1>
+        {% endif %}
+    </div>
+</header>
