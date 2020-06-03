@@ -1,0 +1,50 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    {% include favicons.html %}
+
+    <!-- JEKYLL TITLE CONTENT-->
+    <title>
+        {% if page.title %}
+            {{ page.title }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </title>
+
+    <!-- JEKYLL DESCRIPTION CONTENT-->
+    <meta name="description" content="{{ site.description }}">
+
+    <!-- JEKYLL STYLESHEET HREF -->
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
+    <!-- JEKYLL CANONICAL HREF-->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+    
+    <!-- JEKYLL JS CONTENT -->
+    <script type="text/javascript">
+        const __posts__ = [
+           {% for post in site.posts %}
+                { 
+                    date: '{{ post.date }}',
+                    title: '{{ post.title }}',
+                    group: '{{ post.group }}',
+                    categories: '{{ post.categories | join: ";"  }}',
+                    url: '{{ post.url | prepend: site.baseurl | prepend: site.url }}',
+                    hidden: '{{ post.hidden }}'
+                },
+           {% endfor %}
+        ].map((obj) => {
+            obj.date = new Date(obj.date);
+            obj.categories = obj.categories.split(';')
+            obj.hidden = !!obj.hidden;
+            return obj;
+        });
+    </script>
+    <!-- JEKYLL JS SRC-->
+    {% for script in page.scripts %}
+        <script type="text/javascript" src="{{ '/scripts/' | prepend: site.baseurl }}{{script}}.js"></script>
+    {% endfor %}
+    
+</head>

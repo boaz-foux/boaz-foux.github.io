@@ -1,0 +1,77 @@
+$nav_minimal: 5vw; 
+$nav_maximal: 35vw; 
+
+body > nav  {
+    overflow: hidden;
+    @media only print {
+        display: none;
+    }
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: $nav_minimal;
+    position: fixed;
+    background-color: $dark;
+    opacity: 0.4;
+    z-index: 1;
+    & > div.top {
+        height: 10vh;
+        text-align: center;
+        img {
+            width: 5vw;
+            height: 5vw;
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+    & > div.links {
+        height: 90vh;
+        opacity: 0;
+        text-align: center;
+    }
+    //if exist set effect on
+    & ~ div.content,
+    & ~ footer {
+        @media not print {
+            padding-left: $nav_minimal;
+        }
+    }
+    &:not(:hover){
+        & > div.top {
+            img {
+                opacity: 1;
+                filter: invert(1);
+            }
+        }
+    }
+    &:hover {
+        opacity: 0.9;
+        width: $nav_maximal;
+        & > div.top {
+            img {
+                height: 10vh;
+                width: 10vh;
+                opacity: 0.2;
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+
+        & > div.links {
+            margin: auto;
+            opacity: 1;
+        }
+        & ~ div.content,
+        & ~ header,
+        & ~ footer { 
+            opacity: 0.1;
+        }
+    }
+}
+
+
+
+
+ 
