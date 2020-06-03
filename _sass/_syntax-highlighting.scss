@@ -3,7 +3,8 @@
  */
 .highlight {
     background: #fff;
-    margin-bottom: 1rem;
+    @extend %vertical-rhythm;
+
     .c     { color: #998; font-style: italic } // Comment
     .err   { color: #a61717; background-color: #e3d2d2 } // Error
     .k     { font-weight: bold } // Keyword
