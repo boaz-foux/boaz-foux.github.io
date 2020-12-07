@@ -1,0 +1,35 @@
+
+version: '2'
+services:
+  main:
+    image: core
+    build: .
+    environment:
+      DISPLAY: 
+      ROS_MASTER_URI: "http://master:11311/"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    depends_on:
+      - gazebo
+
+  master:
+    image: ros:kinetic
+    command: ["roscore"]
+
+  gazebo:
+    image: gazebo:gzserver11
+    depends_on:
+      - master
+
+  gzweb:
+    image: osrf/gazebo:gzweb8
+    environment:
+      DISPLAY: 
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    depends_on:
+      - gazebo
+
+
