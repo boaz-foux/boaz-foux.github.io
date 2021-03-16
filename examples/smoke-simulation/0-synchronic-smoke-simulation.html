@@ -1,0 +1,188 @@
+---
+layout: none
+title: "stage 0 - a simple synchronic smoke simulation"
+date: 2021-03-17T08:30:00.000Z
+update: 2021-03-17T08:30:00.000Z
+categories: general stuff smoke simulation big calculations
+group: smoke-simulation 
+permalink: "/examples/smoke-simulation/0-synchronic-smoke-simulation"
+---
+<html>
+
+<head>
+    <title>{{ page.title }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 15vh 10vw;
+            border: 0;
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        #smoke {
+            padding: 0;
+            border: 0;
+            width: 80vmin;
+            height: 40vmin;
+            box-sizing: border-box;
+        }
+
+        div.buttons {
+            display: grid;
+            padding: 10px 0 0;
+            border: 0;
+            width: 80vmin;
+            height: 20vmin;
+            box-sizing: border-box;
+        }
+
+        input[type='button']:not(:last-child) {
+            border-bottom: 0;
+        }
+
+        input[type='button']:not(:first-child) {
+            border-top: dashed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script type="text/javascript" src="./0-fluid-solver-functional.js"></script>
+    <canvas id="smoke"></canvas>
+    <div class="buttons">
+        <input type="button" value="reset" onclick="init()">
+        <input type="button" value="toggle air display" onclick="airDisplay = !airDisplay">
+
+    </div>
+    <script>
+
+
+        const N = 50;
+        const M = 25;
+        let buffers = null ;
+        const init = () => { buffers= createBuffers({ dX: N, dY: M }); };
+        init();
+
+        const canvas = document.getElementById('smoke');
+        const context = canvas.getContext('2d');
+
+        const drawSmoke = ({ density }) => {
+            const dimension = buffers.dimension;
+            const dx = canvas.width / dimension.dX;
+            const dy = canvas.height / dimension.dY;
+
+            const calcDot = (i, j) => {
+                const dd = 0.9;
+                return Math.floor(density[j][i] < 0 ? 0 : density[j][i] || 0);
+            }
+
+            runningIndex({ dimension }, (j0, i0) => {
+                if (i0 >= dimension.dX - 1 || j0 >= dimension.dY - 1) { return; }
+
+                const x0 = dx * i0;
+                const y0 = dy * j0;
+                const xf = x0 + dx;
+                const yf = y0 + dy;
+
+                const density = Math.min(255, Math.max(0, calcDot(i0, j0)));
+                const gradient = context.createRadialGradient(x0 + dx / 2, y0 + dy / 2, 0, x0 + dx / 2, y0 + dy / 2, dx * dy);
+                gradient.addColorStop(0, `#${Array(3).fill(Number(density).toString(16)).join('')}`);
+                gradient.addColorStop(1, "black");
+                context.fillStyle = gradient;
+                context.fillRect(x0, y0, xf, yf);
+            });
+
+        }
+        const drawAir = ({ u, v }) => {
+            const dimension = buffers.dimension;
+            const dx = canvas.width / dimension.dX;
+            const dy = canvas.height / dimension.dY;
+            const dd = 4;
+            runningIndex({ dimension }, (j0, i0) => {
+                const x0 = dx * i0;
+                const y0 = dy * j0;
+                context.beginPath();
+                context.lineWidth = '0.01px';
+                context.strokeStyle = 'red';
+                context.moveTo(x0, y0);
+                context.lineTo(x0 - dd * u[j0][i0], y0 - dd * v[j0][i0]);
+                context.closePath();
+                context.stroke();
+            });
+        };
+
+        let changes = [];
+        let smokeFlag = false;
+        const onMove = (event) => {
+            const { pageX, pageY } = event.touches ? event.touches[0] : event;
+            const dimension = buffers.dimension;
+            const x = Math.floor(dimension.dX * Math.min(canvas.width - 1, Math.max(0, pageX - canvas.offsetLeft)) / canvas.width);
+            const y = Math.floor(dimension.dY * Math.min(canvas.height - 1, Math.max(0, pageY - canvas.offsetTop)) / canvas.height);
+            changes.push({ x, y, smoke: smokeFlag });
+        };
+
+        canvas.addEventListener('mousedown', () => { smokeFlag = true; });
+        canvas.addEventListener('mouseup', () => { smokeFlag = false; });
+        canvas.addEventListener('touchstart', () => { smokeFlag = !smokeFlag; });
+        canvas.addEventListener('mousemove', onMove);
+        canvas.addEventListener('touchmove', onMove);
+
+        const getChanges = () => {
+            const originalChanges = changes;
+            const dimension = buffers.dimension;
+            changes = [];
+            const dd = 5;
+            if (!originalChanges.length) {
+                runningIndex({ dimension }, (j, i) => {
+                    // fade hack
+                    buffers.densityPreview[j][i] = -buffers.density[j][i] / 100;
+                });
+            }
+            for (const change of originalChanges) {
+                const { x, y, smoke } = change;
+                for (let i = -dd; i < dd; i++) {
+                    for (let j = -dd; j < dd; j++) {
+                        if (Math.abs(i * j) >= dd ** 2) { continue; }
+                        const xi = x + i;
+                        const yj = y + j;
+                        if (xi < 0 || xi > dimension.dX - 1 || yj < 0 || yj > dimension.dY - 1) { continue; }
+                        if (smoke) {
+                            buffers.densityPreview[yj][xi] = 10 ** 5;
+                            continue;
+                        }
+                        buffers.uPreview[yj][xi] = i * 0.0000002;
+                        buffers.vPreview[yj][xi] = j * 0.0000002;
+                    }
+                }
+            }
+        };
+        let airDisplay = true;
+
+        const clear = () => {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        let last = 0;
+        const loop = () => {
+            getChanges();
+            const now = performance.now();
+            buffers.dt = 0.001;
+            solver(buffers);
+            clear();
+            drawSmoke(buffers);
+            if (airDisplay) { drawAir(buffers); }
+            last = now;
+        };
+        const loopHandler = () => {
+            loop();
+            setTimeout(loopHandler, 0);
+        };
+        loopHandler();
+
+    </script>
+</body>
+
+</html>

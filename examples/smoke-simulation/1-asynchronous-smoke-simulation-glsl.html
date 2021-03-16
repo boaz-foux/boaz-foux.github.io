@@ -1,0 +1,43 @@
+---
+layout: none
+title: "stage 1.2 - asynchronous - smoke simulation with GLSL"
+date: 2021-03-17T08:30:00.000Z
+update: 2021-03-24T09:15:30.621Z
+categories: general stuff smoke simulation big calculations
+group: smoke-simulation
+permalink: "/examples/smoke-simulation/1-asynchronous-smoke-simulation-glsl"
+---
+<html>
+
+<head>
+    <title>{{ page.title }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 15vh 10vw;
+            border: 0;
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="{{ '/assets/scripts/' | prepend: site.baseurl }}glsl.min.js"></script>
+    <script>
+        if (!Glsl.supported()) {
+            const error = "WebGL or GLSL is not supported.";
+            alert(error);
+            document.write(error);
+        }
+    </script>
+    <script type="module" src="{{ site.baseurl }}/examples/smoke-simulation/1-smoke-simulation-canvas-glsl.js"></script>
+    <smoke-simulation-canvas-glsl></smoke-simulation-canvas-glsl>
+</body>
+
+</html>

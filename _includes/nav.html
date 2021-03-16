@@ -8,8 +8,7 @@
     </div>
     <div class="links">
         <ul>
-            {% assign sorted =  site.posts | where: 'hidden',empty  | sort: 'date' | reverse | limit:50 %}
-            {% for post in sorted %}
+            {% for post in  site.posts | where: 'hidden',empty  | sort: 'date' | reverse | limit:50  %}
             <li>
                 <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
                     {{ post.title }}

@@ -1,12 +1,12 @@
 # Site settings
-title: the blog post diary of a soloist alchemist.
+title: a blog post diary of a soloist software alchemist.
 email: boaz.foux@gmail.com
 twitter_username: boaz_foux
 github_username:  boaz-foux
 url: "https://boaz-foux.github.io" 
 description: > # this means to ignore newlines until "baseurl:"
   This is the general description, For my site.
-  My name is Boaz Foux and I'm a software developer at tikal .
+  My name is Boaz Foux and I'm a software developer at Tikal .
   All I'm looking to do is to write at least one project, that I'm really really proud of.
 # baseurl: "" # the subpath of your site, e.g. /blog/
 # Build settings
@@ -14,4 +14,6 @@ markdown: kramdown
 permalink: /:year/:title:output_ext
 sass:
     sass_dir: _sass
-
+include:
+  - _examples
+  - _posts

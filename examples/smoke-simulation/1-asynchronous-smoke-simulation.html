@@ -1,0 +1,32 @@
+---
+layout: none
+title: "stage 1 - asynchronous - smoke simulation"
+date: 2021-03-17T08:30:00.000Z
+update: 2021-03-24T09:15:30.621Z
+categories: general stuff smoke simulation big calculations
+group: smoke-simulation 
+permalink: "/examples/smoke-simulation/1-asynchronous-smoke-simulation"
+---
+<html>
+
+<head>
+    <title>{{ page.title }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 15vh 10vw;
+            border: 0;
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module" src="{{ site.baseurl }}/examples/smoke-simulation/1-smoke-simulation-canvas.js"></script>
+    <smoke-simulation-canvas id="canvas"></smoke-simulation-canvas>
+    <input type="button" value="toggle air vectors" onclick="canvas.toggleAttribute('show-air')"> 
+</body>
+
+</html>

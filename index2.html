@@ -2,19 +2,12 @@
 layout: default
 ---
 
-{% assign shows = ""%}
-{% for page in site.pages %}
-  {% if page.hidden %}
-  {% else %}
-    {% assign shows = shows | push:page %}
-  {% endif %}
-{% endfor %}
 
 <div class="home">
 
   <h1 class="page-heading">Posts:</h1>
   <ul class="post-list">
-    {% for post in shows %}
+    {% for post in site.posts | where: 'hidden',empty  | sort: 'date' | reverse  %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         <h2>

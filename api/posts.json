@@ -4,14 +4,12 @@
 [
 {% for post in site.posts %}
     {% if forloop.index > 1 %},{% endif %}{
-        "url: "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
+        "url": "{{ post.url | prepend: site.baseurl | prepend: site.url  }}",
         "post": "{{ post.title }}",
         "date":"{{ post.date | date_to_long_string }}",
         "update":"{{ post.update | date_to_long_string }}",
-        "categories": [
-            {% for category in post.categories | split: ", " %}{% if forloop.index > 1 %},{% endif %}"{{ category }}"{% endfor %}
-        ],
+        "categories": [{% for category in post.categories | split: ", " %}{% if forloop.index > 1 %},{% endif %}"{{ category }}"{% endfor %}],
         "group": "{{ post.group }}",
-        "hidden": "{{ post.hidden }}"
+        "hidden": {% if post.hidden %}true{% else %}false{% endif %}
     }{% endfor %}
 ]
