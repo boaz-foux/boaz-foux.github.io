@@ -1,0 +1,21 @@
+<nav>
+    <div class="top">
+        <a href="{{site.url}}">
+            <img class="logo" 
+            src="{{  '/assets/images/header-image.png' | prepend: site.baseurl | prepend: site.url }}" 
+            alt="bar logo image" >
+        </a>
+    </div>
+    <div class="links">
+        <ul>
+            {% assign sorted =  site.posts | where: 'hidden',empty  | sort: 'date' | reverse | limit:50 %}
+            {% for post in sorted %}
+            <li>
+                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+                    {{ post.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,33 @@
+$white: #fff;
+$light: #cdcdcd;
+$light_mid_grey: #7e7e7e;
+$mid_grey: #4e4e4e;
+$dark: #343434;
+$black: #000;
+
+$space_colors: (
+    lightest:#98cea6, 
+    lighter:#6289aa,
+    light:#ab59b6,
+    base: #df1ddf,
+    dark: #812981,
+    darker: #411541,
+    darkest: #351135,
+);
+
+$space_colors_dark: (
+    lightest:#007920, 
+    lighter:#005096,
+    light:#ae00c5,
+    base: #940094,
+    dark: #7e007e,
+    darker: #420042,
+    darkest: #290029,
+);
+
+html, body  {
+    @media only screen {
+        background-color: $black;
+        color: $light;
+    }
+}

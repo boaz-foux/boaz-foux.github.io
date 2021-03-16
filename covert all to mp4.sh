@@ -1,0 +1,1 @@
+for i in *.avi; do ffmpeg -i $i ./converted/${i%.*}.mp4; done
