@@ -3,7 +3,7 @@ layout: post
 title:  "Physical Smoke Simulation - for UI implementation - Part 1"
 date:   2021-03-16T09:54:01.313Z
 update: 2021-03-24T09:15:30.621Z
-categories: general stuff smoke simulation big calculations
+categories: smoke simulation big calculations
 group: smoke-simulation 
 ---
 

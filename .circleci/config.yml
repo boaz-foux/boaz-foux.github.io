@@ -1,0 +1,53 @@
+
+version: 2.1
+
+orbs:
+  node: circleci/node@3.0.0
+  python: circleci/python@0.2.1
+
+jobs:
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - run: echo "this is the build job"
+
+  test:
+    executor: node/default
+    steps:
+      - checkout
+      - run: echo "this is the test job"
+
+  deploy-dev:
+    executor: node/default
+    steps:
+      - checkout
+      - run: |
+          git config credential.helper 'cache --timeout=120'
+          git config user.email "boaz.foux@gmail.com"
+          git config user.name "CI/CD"
+          date '+%FT%T.%SZ' >> assets/build_time.txt
+          git add .
+          git commit -m "updated via CircleCI"
+          git push -qf https://${GITHUB_TOKEN}@github.com/boaz-foux/boaz-foux.github.io.git dev:master
+
+workflows:
+  build_and_test:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test
+          filters:
+            branches:
+              ignore: master
+      - deploy-dev:
+          requires:
+            - test
+          context:
+            - BLOG
+          filters:
+            branches:
+              only: dev
+
+
