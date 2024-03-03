@@ -1,0 +1,26 @@
+{
+  "name": "boaz-foux.github.io",
+  "version": "0.0.0",
+  "description": "my personal blog",
+  "main": "index.js",
+  "scripts": {
+    "helper:push-all": "git push origin -f --all",
+    "helper:generate-timestamp": "date -u +\"%Y-%m-%dT%H:%M:%S.000Z\"",
+
+    "dev:jekyll:mac": "docker run --rm -v \"$(pwd):/srv/jekyll\" -it -p 4000:4000 github-jekyll:0.1 jekyll serve",
+
+    "build:jekyll:mac":  "docker build --tag github-jekyll:0.1 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boaz-foux/boaz-foux.github.io.git"
+  },
+  "author": "Boaz Foux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boaz-foux/boaz-foux.github.io/issues"
+  },
+  "homepage": "https://github.com/boaz-foux/boaz-foux.github.io#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
