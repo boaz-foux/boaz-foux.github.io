@@ -1,0 +1,17 @@
+# Site settings
+title: My name is Boaz Foux and I'm a software developer
+email: boaz.foux@gmail.com
+twitter_username: "0xdeaddeaf"
+github_username:  "boaz-foux"
+url: "https://boaz-foux.github.io" 
+description: > # this means to ignore newlines until "baseurl:"
+  My name is Boaz Foux and I'm a software developer at Wisedocs.
+# baseurl: "" # the subpath of your site, e.g. /blog/
+# Build settings
+markdown: kramdown
+permalink: /:year/:title:output_ext
+sass:
+    sass_dir: _sass
+include:
+  - assets
+  - _posts
