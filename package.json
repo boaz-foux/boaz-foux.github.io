@@ -4,12 +4,12 @@
   "description": "my personal blog",
   "main": "index.js",
   "scripts": {
-    "helper:push-all": "git push origin -f --all",
-    "helper:generate-timestamp": "date -u +\"%Y-%m-%dT%H:%M:%S.000Z\"",
-
+    "git:push-all": "git push origin -f --all",
+    "helper:generate-timestamp": "date -u +\"%Y-%m-%dT%H:%M:%S.000Z\" >> timestamp",
+    "helper:copy-normalize": "cp ./node_modules/normalize.css/normalize.css ./css/normalize.css",
     "dev:jekyll:mac": "docker run --rm -v \"$(pwd):/srv/jekyll\" -it -p 4000:4000 github-jekyll:0.1 jekyll serve",
-
-    "build:jekyll:mac":  "docker build --tag github-jekyll:0.1 ."
+    "build:jekyll:mac": "docker build --tag github-jekyll:0.1 .",
+    "pre-deploy": "npm run helper:generate-timestamp && npm run helper:copy-normalize"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,7 @@
   },
   "homepage": "https://github.com/boaz-foux/boaz-foux.github.io#readme",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "normalize.css": "8.0.1"
+  }
 }
