@@ -1,0 +1,46 @@
+$black: #000000;
+$white-smoke: #cacaca;
+$white: #e0e0e0;
+$bright: #ffffff;
+
+$aqua: #00ffff;
+$bright-aqua: #8affff;
+$pink: #ff00ff;
+$bright-pink: #ff92ff;
+$background: #17202c; //darker back
+$bright-background: #2d3748;
+
+@mixin basic-colors {
+    --basic-black:#{$black};
+    --basic-bright:#{$white};
+    --basic-white:#{$white-smoke};
+    --basic-pink:#{$bright-pink};
+    --basic-aqua:#{$bright-aqua};
+    --basic-background:#{$background};
+}
+
+@mixin dark-colors {
+    --basic-bright:#{$bright};
+    --basic-white:#{$white};
+    --basic-pink:#{$pink};
+    --basic-aqua:#{$aqua};
+    --basic-background:#{$bright-background};
+}
+
+html,
+body {
+    @include basic-colors;
+
+    &[theme="dark"] {
+        @include dark-colors;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        &:not([theme='light']) {
+            @include dark-colors;
+        }
+    }
+
+    color: var(--basic-white, $white-smoke);
+    background-color: var(--basic-background-color, $black);
+}

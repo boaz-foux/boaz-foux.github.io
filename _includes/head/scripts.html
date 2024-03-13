@@ -1,0 +1,14 @@
+{% assign set_env = jekyll.environment  %}
+{% assign is_dev = false  %}
+{% if set_env == "production" %}
+{% assign base =  '/' | prepend: site.baseurl | prepend: site.url %}
+{% else %}
+{% assign is_dev = true %}
+{% assign base =  'localhost:4000/'  %}
+{% endif %}
+<script>
+    console.log('{{set_env}} {{is_dev}} --> {{base}}');
+</script>
+{% for script in page.scripts %}
+<script type="text/javascript" src="{{ '/scripts/' | prepend:base }}{{script}}.js"></script>
+{% endfor %}

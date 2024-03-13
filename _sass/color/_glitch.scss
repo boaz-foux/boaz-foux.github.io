@@ -1,0 +1,57 @@
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    outline: none;
+    color: var(--basic-bright);
+    * {
+        animation: distorted-text 2000ms cubic-bezier(0.65, 0.02, 0, 1) infinite;
+    }
+
+    div {
+        animation: distorted-border 1500ms cubic-bezier(0.65, 0.02, 0, 1) infinite;
+    }
+}
+
+@keyframes distorted-border {
+    $steps: 30;
+    $distort: 16;
+
+    @for $i from 0 to $steps {
+        #{percentage(0.01 + ($i/($steps*10)))} {
+            box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+        }
+    }
+
+    0%,
+    11%,
+    12%,
+    100% {
+        box-shadow: inherit;
+    }
+}
+
+
+@keyframes distorted-text {
+    $steps: 60;
+    $noise: 8;
+    $distort: 16;
+
+    @for $i from 0 to $steps {
+        #{percentage(0.01 + ($i/($steps*10)))} {
+            transform: skew((random($noise*2) - $noise) + deg);
+            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+            color: $bright;
+        }
+    }
+
+    0%,
+    11%,
+    12%,
+    100% {
+        transform: inherits;
+        text-shadow: inherit;
+    }
+}
