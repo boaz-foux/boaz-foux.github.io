@@ -18,7 +18,7 @@
     .cp,
     /* Comment.Special */
     .cs {
-        color: color-mix(in srgb, var(--basic-white), #000 30%);
+        color: color-mix(in srgb, var(--basic-white), var(--basic-black) 30%);
     }
 
     /* Keyword */
@@ -45,14 +45,93 @@
 
     /* Name.Constant */
     .no {
-        color: color-mix(in srgb, var(--basic-aqua), var(--basic-white) 50%);
+        color: color-mix(in srgb, var(--basic-aqua), var(--basic-white) 75%);
+    }
+
+    /* Error */
+    .err {
+        background-color: color-mix(in srgb, var(--basic-pink), var(--basic-black) 50%);
+        color: var(--basic-white);
+    }
+
+
+    /* Operator */
+    .o,
+    /* Operator.Word */
+    .ow {
+        color: color-mix(in srgb, var(--basic-white), var(--basic-aqua) 30%);
+    }
+
+    /* Name.Builtin */
+    .nb,
+    /* Name.Class */
+    .nc,
+    /* Name.Exception */
+    .ne,
+    /* Name.Function */
+    .nf,
+    /* Name.Entity */
+    .ni,
+    /* Name.Namespace */
+    .nn,
+    /* Name.Tag */
+    .nt,
+    /* Name.Variable */
+    .nv,
+    /* Name.Function */
+    .nx,
+    /* Name.Variable.Class */
+    .vc,
+    /* Name.Variable.Global */
+    .vg,
+    /* Name.Variable.Instance */
+    .vi {
+        color: color-mix(in srgb, var(--basic-white), var(--basic-pink) 15%);
+    }
+
+    /* Literal.String */
+    .s,
+    /* Literal.String.Single */
+    .s1,
+    /* Literal.String.Double */
+    .s2,
+    /* Literal.String.Backtick */
+    .sb,
+    /* Literal.String.Char */
+    .sc,
+    /* Literal.String.Doc */
+    .sd,
+    /* Literal.String.Escape */
+    .se,
+    /* Literal.String.Heredoc */
+    .sh,
+    /* Literal.String.Interpol */
+    .si,
+    /* Literal.String.Regex */
+    .sr,
+    /* Literal.String.Symbol */
+    .ss,
+    /* Literal.String.Other */
+    .sx {
+        color: var(--basic-aqua);
+    }
+
+    /* Literal.Number */
+    .m,
+    /* Literal.Number.Float */
+    .mf,
+    /* Literal.Number.Hex */
+    .mh,
+    /* Literal.Number.Integer */
+    .mi,
+    /* Literal.Number.Oct */
+    .mo {
+        color: color-mix(in srgb, var(--basic-aqua), var(--basic-pink) 50%);
     }
 
 
     /* Name.Builtin.Pseudo */
     .bp,
-    /* Error */
-    .err,
     /* Generic.Deleted.Specific */
     .gd .x,
     /* Generic.Deleted */
@@ -79,66 +158,6 @@
     .gu,
     /* Literal.Number.Integer.Long */
     .il,
-    /* Literal.Number */
-    .m,
-    /* Literal.Number.Float */
-    .mf,
-    /* Literal.Number.Hex */
-    .mh,
-    /* Literal.Number.Integer */
-    .mi,
-    /* Literal.Number.Oct */
-    .mo,
-    /* Name.Builtin */
-    .nb,
-    /* Name.Class */
-    .nc,
-    /* Name.Exception */
-    .ne,
-    /* Name.Function */
-    .nf,
-    /* Name.Entity */
-    .ni,
-    /* Name.Namespace */
-    .nn,
-    /* Name.Tag */
-    .nt,
-    /* Name.Variable */
-    .nv,
-    /* Operator */
-    .o,
-    /* Operator.Word */
-    .ow,
-    /* Literal.String */
-    .s,
-    /* Literal.String.Single */
-    .s1,
-    /* Literal.String.Double */
-    .s2,
-    /* Literal.String.Backtick */
-    .sb,
-    /* Literal.String.Char */
-    .sc,
-    /* Literal.String.Doc */
-    .sd,
-    /* Literal.String.Escape */
-    .se,
-    /* Literal.String.Heredoc */
-    .sh,
-    /* Literal.String.Interpol */
-    .si,
-    /* Literal.String.Regex */
-    .sr,
-    /* Literal.String.Symbol */
-    .ss,
-    /* Literal.String.Other */
-    .sx,
-    /* Name.Variable.Class */
-    .vc,
-    /* Name.Variable.Global */
-    .vg,
-    /* Name.Variable.Instance */
-    .vi,
     /* Text.Whitespace */
     .w {
         color: var(--basic-white);

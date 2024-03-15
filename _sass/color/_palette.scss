@@ -42,5 +42,15 @@ body {
     }
 
     color: var(--basic-white, $white-smoke);
-    background-color: var(--basic-background-color, $black);
+    background-color: var(--basic-black, $black);
+}
+
+::selection {
+    background-color: var(--basic-white, $white);
+    color: var(--basic-black, $black);
+}
+
+* {
+
+    transition: color .05s ease-in;
 }

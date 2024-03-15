@@ -11,7 +11,7 @@ Because it is too white
 
 ## syntax highlighter
 
-```sass
+```scss
 .highlight {
     .highlighter-rouge & {}
     /* Name.Builtin.Pseudo */
@@ -98,6 +98,8 @@ Because it is too white
     .nt,
     /* Name.Variable */
     .nv,
+    /* Name.Function */
+    .nx,
     /* Operator */
     .o,
     /* Operator.Word */

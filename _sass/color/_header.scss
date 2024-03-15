@@ -1,0 +1,7 @@
+header.main {
+    background-image: linear-gradient(-0.5deg, rgba(255, 0, 0, 0) 0%, var(--basic-background) 85%);
+}
+
+header.main+.placeholder {
+    background-image: linear-gradient(180deg, var(--basic-background) 70%, rgba(255, 0, 0, 0) 100%);
+}
