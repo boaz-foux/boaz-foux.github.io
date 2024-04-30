@@ -6,8 +6,13 @@ update: 2024-03-13T12:23:09.000Z
 categories: general stuff style
 group: style
 ---
-# Why?
-Because it is too white
+# The Main Plan
+At first about using tailwind as the basic css, but unfortunately without a basic build system it will be hard to manage all the naming and architecture.
+So I have started with something simple.
+By building the style from scratch, it give me also the freedom to build stuff like the glitch effect.
+
+[ ] Building component system for the blog
+[ ] Adding tailwind
 
 ## syntax highlighter
 
