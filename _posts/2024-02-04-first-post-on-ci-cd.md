@@ -99,6 +99,7 @@ jobs:
 ### Step 3: adding cache
   * bug fix `master` ->  `main`
   *  adding cache
+
 ```yml
 name: Build and Deploy
 
@@ -127,3 +128,8 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} 
 ```
+
+
+# My future plans:
+[ ] Lazy parcel deployment
+[ ] Git ignore lines removal
