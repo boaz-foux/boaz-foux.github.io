@@ -1,0 +1,71 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+img {
+    max-width: min(100%, 100vw);
+}
+
+.simple-padding {
+    padding: min(10px, 10vh) max(10px, 6vw) 0; // for now
+}
+
+.main {
+    display: flex;
+    width: 100vw;
+    min-height: max(5vh, 3rem);
+}
+
+.placeholder {
+    position: absolute;
+    top: 0;
+}
+
+header.main {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+footer.main {
+    z-index: 1;
+    bottom: 0;
+}
+
+.note {
+    height: 40vh;
+    width: 70vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.post {
+    margin: 0 1.2em;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    align-content: space-around;
+    flex-direction: column;
+}
+
+.main-image {
+    height: 25vh;
+    margin: 2vh;
+
+    img {
+        height: 100%;
+        border-radius: 50%;
+    }
+}

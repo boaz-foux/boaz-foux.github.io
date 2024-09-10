@@ -1,0 +1,29 @@
+{% assign title =  site.title  %}
+{% if page.title %}
+{{ assign title =  page.title }}
+{% endif %}
+{% assign description =  site.description  %}
+{% assign url =  page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta property="og:locale" content="en_US">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{{title}}</title>
+<meta property="og:title" content="{{title}}">
+<meta property="twitter:title" content="{{title}}">
+<meta property="og:site_name" content="{{title}}">
+<meta name="description" content="{{description}}">
+<meta property="og:description" content="{{description}}">
+<link rel="canonical" href="{{url}}" />
+<meta property="og:url" content="{{url}}">
+<script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"WebSite",
+        "description":"{{{description}},
+        "name":"{{title}}",
+        "url":"{{url}}"
+    }
+</script>
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
