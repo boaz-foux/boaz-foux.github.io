@@ -8,7 +8,9 @@
     "helper:generate-timestamp": "date -u +\"%Y-%m-%dT%H:%M:%S.000Z\" >> timestamp",
     "helper:copy-normalize": "cp ./node_modules/normalize.css/normalize.css ./css/normalize.css",
     "dev:jekyll:mac": "docker run --rm -v \"$(pwd):/srv/jekyll\" -it -p 4000:4000 github-jekyll:0.1 jekyll serve",
+    "dev:jekyll:linux": "bundle exec jekyll build --watch",
     "build:jekyll:mac": "docker build --tag github-jekyll:0.1 .",
+    "build:jekyll:linux" : "sudo apt-get install ruby-full build-essential zlib1g-dev && sudo gem install jekyll -v 3.8.5 && sudo bundle install",
     "pre-deploy": "npm run helper:generate-timestamp && npm run helper:copy-normalize"
   },
   "repository": {
