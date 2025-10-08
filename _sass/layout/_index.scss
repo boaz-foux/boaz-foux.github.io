@@ -1,3 +1,4 @@
+
 html,
 body {
     padding: 0;
@@ -7,17 +8,35 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    overflow-x: hidden;
 }
+
+
 
 img {
     max-width: min(100%, 100vw);
 }
 
+$dark-aqua: #0f172a;
+$aqua: #00ffff;
+$skew-angle: -2.5deg;
+$diagonal-header-background: linear-gradient(136deg, $dark-aqua, transparent);
+
 .diagonal-header {
-    transform: skewY(-2.5deg);
-    transform-origin: center;
+    position: relative;
+    padding: 2rem 0;
+    background: $diagonal-header-background;
 }
 
-.diagonal-header > nav {
-    transform: skewY(2.5deg);
+.diagonal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background-color: $dark-aqua;
+    border-bottom: 2px solid $aqua;
+    transform: skewY($skew-angle);
+    z-index: -1;
 }
