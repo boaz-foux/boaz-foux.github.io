@@ -12,3 +12,12 @@ body {
 img {
     max-width: min(100%, 100vw);
 }
+
+.diagonal-header {
+    transform: skewY(-2.5deg);
+    transform-origin: center;
+}
+
+.diagonal-header > nav {
+    transform: skewY(2.5deg);
+}
