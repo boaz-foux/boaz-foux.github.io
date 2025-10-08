@@ -1,0 +1,10 @@
+---
+layout: default
+---
+<article class="prose prose-invert lg:prose-xl max-w-none">
+  <h1>{{ page.title }}</h1>
+  <p class="text-gray-400">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+  </p>
+  {{ content }}
+</article>

@@ -1,0 +1,261 @@
+$animation-function: cubic-bezier(0.65, 0.02, 0, 1);
+
+@mixin distorted-text-mixin () {
+    $animation-duration: ceil((random() * 500) +1500);
+    $animation-pause: ceil(random() * 1500);
+    animation: distorted-text #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+}
+
+@mixin distorted-text-long-mixin () {
+    $animation-duration: ceil((random() * 500) +19500);
+    $animation-pause: ceil(random() * 10000);
+    animation: distorted-text-long #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+}
+
+@mixin distorted-text-hover-mixin () {
+    $animation-duration: ceil((random() * 1000) +1000);
+
+    &:hover {
+        animation: distorted-full-noise 2000ms #{$animation-function} infinite;
+    }
+}
+
+@mixin distorted-border-long-mixin () {
+    $animation-duration: ceil((random() * 500) +19500);
+    $animation-pause: ceil(random() * 10000);
+    animation: distorted-border-long #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+}
+
+@mixin distorted-border-mixin () {
+    $animation-duration: ceil((random() * 500) +1500);
+    $animation-pause: ceil(random() * 1500);
+    animation: distorted-border #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+}
+
+@mixin distorted-border-hover-mixin () {
+    $animation-duration: ceil((random() * 1000) +1000);
+    $animation-pause: ceil(random() * 1500);
+
+    &:hover {
+        animation: distorted-border-full-noise 2000ms #{$animation-function} infinite;
+    }
+}
+
+@mixin distorted-headers-mixin () {
+    @for $i from 1 to 5 {
+
+        &:is(h#{$i}),
+        h#{$i} {
+            @include distorted-text-long-mixin();
+        }
+    }
+}
+
+@mixin distorted-img-mixin () {
+
+    &:is(img),
+    img {
+        @include distorted-border-long-mixin ();
+    }
+
+}
+
+@mixin distorted-glitch() {
+    @include distorted-headers-mixin ();
+    @include distorted-img-mixin ();
+}
+
+@keyframes distorted-border {
+    $steps: 60;
+    $noise: 5;
+    $distort: 16;
+
+    @for $i from 0 to $steps {
+        $percent: percentage($i/$steps);
+
+        #{$percent} {
+            @if ($percent < 11) or ($percent ==0) {
+                transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
+                text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+                box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+            }
+
+            @else {
+                transform: inherit;
+                text-shadow: inherit;
+                box-shadow: inherit;
+            }
+        }
+    }
+}
+
+@keyframes distorted-border-long {
+    $steps: 60;
+    $noise: 20;
+    $distort: 16;
+
+    @for $i from 0 to $steps {
+        $percent: percentage($i/($steps*20));
+
+        #{$percent} {
+            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
+            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+            box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+
+        }
+    }
+
+    5%,
+    6%,
+    100% {
+        transform: inherit;
+        text-shadow: inherit;
+        box-shadow: inherit;
+    }
+}
+
+
+@keyframes distorted-border-full-noise {
+    $steps: 60;
+    $noise: 40;
+    $distort: 20;
+
+    @for $i from 0 to $steps {
+        $percent: percentage($i/$steps);
+
+        #{$percent} {
+            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
+            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+            box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+        }
+    }
+}
+
+@keyframes distorted-full-noise {
+    $steps: 60;
+    $noise: 40;
+    $distort: 20;
+
+    @for $i from 0 to $steps {
+        $percent: percentage($i/$steps);
+
+        #{$percent} {
+            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
+            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+            color: $bright;
+        }
+    }
+}
+
+@keyframes distorted-text {
+    $steps: 60;
+    $noise: 20;
+    $distort: 16;
+
+    @for $i from 0 to $steps {
+        $percent: percentage($i/$steps);
+
+        #{$percent} {
+            @if ($percent < 11) or ($percent ==0) {
+                transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
+                text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+                color: $bright;
+            }
+
+            @else {
+                transform: inherit;
+                text-shadow: inherit;
+            }
+        }
+    }
+}
+
+@keyframes distorted-text-long {
+    $steps: 60;
+    $noise: 10;
+    $distort: 16;
+
+    @for $i from 0 to $steps {
+        $percent: percentage($i/($steps*20));
+
+        #{$percent} {
+            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
+            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
+            color: $bright;
+
+        }
+    }
+
+    5%,
+    6%,
+    100% {
+        transform: inherit;
+        text-shadow: inherit;
+    }
+}
+
+
+a,
+button {
+
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        display: inline-block;
+        text-decoration: none;
+        outline: none;
+        color: var(--basic-bright);
+    }
+}
+
+button {
+    background: transparent;
+    border-radius: 30px;
+    padding: 0.5rem;
+}
+
+* {
+    $nth: 7;
+
+    @for $n from 1 to $nth {
+        &:nth-child(#{$nth}n + #{$n}) * {
+            $deep_nth: 7;
+
+            @for $n from 1 to $deep_nth {
+                &:nth-child(#{$deep_nth}n + #{$n}) a {
+                    @include distorted-text-mixin();
+                    @include distorted-text-hover-mixin();
+                }
+
+                &:nth-child(#{$deep_nth}n + #{$n}) button {
+                    @include distorted-border-mixin();
+                    @include distorted-border-hover-mixin();
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.glitch {
+    @include distorted-glitch ();
+    $nth: 7;
+
+    @for $n from 1 to $nth {
+        *:nth-child(#{$nth}n + #{$n}) {
+            @include distorted-glitch ();
+            $deep_nth: 7;
+
+            @for $n from 1 to $deep_nth {
+                *:nth-child(#{$deep_nth}n + #{$n}) {
+                    @include distorted-glitch ();
+                }
+            }
+        }
+    }
+}

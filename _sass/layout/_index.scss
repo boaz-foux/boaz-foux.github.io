@@ -1,0 +1,14 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+img {
+    max-width: min(100%, 100vw);
+}
