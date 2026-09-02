@@ -1,0 +1,44 @@
+/* Minimal cyberpunk stylesheet — responsive and small footprint */
+
+:root{
+  --bg-color:#03060a;
+  --panel:#000000cc;
+  --muted:#9ca3af;
+  --accent:#0ea5a4; /* teal */
+  --neon:#7c3aed; /* purple neon */
+}
+
+html,body{height:100%;margin:0;font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;background:var(--bg-color);color:#fff;-webkit-font-smoothing:antialiased}
+
+/* scanlines overlay */
+.scanlines::after{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.01) 50%, rgba(0,0,0,0.05) 50%);background-size:100% 4px;mix-blend-mode:overlay}
+
+.site-wrapper{max-width:1100px;margin:3rem auto;padding:1rem}
+
+/* header */
+.cp-header{position:sticky;top:0;z-index:50;padding:.5rem 0;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.cp-header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:1100px;margin:0 auto;padding:0 1rem}
+.site-title{font-weight:800;letter-spacing:.02em;color:var(--neon);text-decoration:none}
+.site-nav a{color:var(--muted);text-decoration:none;margin-left:1rem;font-size:.95rem}
+.site-nav a:hover{color:#fff}
+
+/* main */
+.cp-main{background:var(--panel);border:1px solid rgba(255,255,255,0.04);padding:2rem;border-radius:8px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+
+/* footer */
+.cp-footer{margin-top:1.5rem;padding:1rem 1rem;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;align-items:center}
+
+/* responsive */
+@media (max-width:768px){
+  .site-wrapper{margin:1rem;padding:0}
+  .cp-header-inner{padding:0 0.5rem}
+  .cp-main{padding:1rem;border-radius:6px}
+  .site-nav{display:none}
+}
+
+/* small accessibility helpers */
+a{word-break:break-word}
+
+/* htmx indicator */
+.htmx-requesting .cp-header{outline:4px solid rgba(124,58,237,0.06)}
+

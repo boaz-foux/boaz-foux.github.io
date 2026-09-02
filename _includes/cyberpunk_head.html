@@ -1,0 +1,40 @@
+---
+# Cyberpunk head include: meta, css, fonts, htmx
+---
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Preconnect & preload for fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- Cyberpunk CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/cyberpunk.css' | relative_url }}">
+
+  <!-- HTMX (CDN) -->
+  <script src="https://unpkg.com/htmx.org@1.10.0"></script>
+
+  <!-- Minimal JSON-LD (site) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title | escape }}",
+    "url": "{{ site.url | default: site.github.url | escape }}"
+  }
+  </script>
+
+</head>

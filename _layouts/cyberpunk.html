@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  {% include cyberpunk_head.html %}
+  <body class="cyberpunk-body">
+    <div class="site-wrapper">
+      <header class="cp-header">
+        <div class="cp-header-inner">
+          <a href="{{ '/' | relative_url }}" class="site-title">{{ page.title | default: site.title }}</a>
+          <nav class="site-nav">
+            {% for p in site.pages %}
+              {% if p.nav == true %}
+                <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        </div>
+      </header>
+
+      <main id="content" class="cp-main">
+        {{ content }}
+      </main>
+
+      <footer class="cp-footer">
+        {% include _fragments/footer.html %}
+      </footer>
+    </div>
+
+    {% include cyberpunk_footer.html %}
+  </body>
+</html>
