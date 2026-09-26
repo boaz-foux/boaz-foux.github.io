@@ -85,8 +85,8 @@ layout: default
         <div class="space-y-3">
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> LivePerson
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> LivePerson
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Herzliya [2021 - 2022]</span>
                 </summary>
@@ -98,8 +98,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Screenovate Technologies (Acquired by Intel)
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> Screenovate Technologies (Acquired by Intel)
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Ra'anana [2020 - 2021]</span>
                 </summary>
@@ -111,8 +111,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Indoor Robotics
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> Indoor Robotics
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2020]</span>
                 </summary>
@@ -124,8 +124,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Anodot
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> Anodot
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Remote [2020]</span>
                 </summary>
@@ -136,8 +136,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Source Defense
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> Source Defense
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Rosh Haayin [2019 - 2020]</span>
                 </summary>
@@ -148,8 +148,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> NEX
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> NEX
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2018 - 2019]</span>
                 </summary>
@@ -160,8 +160,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Namogoo
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> Namogoo
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2018]</span>
                 </summary>
@@ -173,8 +173,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> E8 Storage (Acquired by Amazon)
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> E8 Storage (Acquired by Amazon)
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2016 - 2018]</span>
                 </summary>
@@ -185,8 +185,8 @@ layout: default
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
                 <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
-                        <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Shellanoo Group
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-3 min-w-0 text-left">
+                        <span class="arrow-icon" aria-hidden="true"></span> Shellanoo Group
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Herzliya [2016]</span>
                 </summary>

@@ -91,7 +91,17 @@ details summary {
     list-style: none;
 }
 
+.arrow-icon {
+    flex: none;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
 details[open] summary .arrow-icon {
-    transform: rotate(90deg);
+    transform: rotate(45deg);
     color: #ff007f;
 }
