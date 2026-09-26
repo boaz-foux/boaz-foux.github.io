@@ -3,19 +3,19 @@ layout: default
 ---
 
 <section id="home" class="relative bg-cyber-card border border-cyber-cyan/30 p-8 md:p-12 cyber-clip shadow-neon-cyan">
-    <div class="absolute top-0 right-0 bg-cyber-cyan text-cyber-black font-orbitron text-xs font-black px-3 py-1 uppercase tracking-widest">
+    <div class="relative mb-4 ml-auto w-fit sm:absolute sm:top-0 sm:right-0 sm:mb-0 bg-cyber-cyan text-cyber-black font-orbitron text-xs font-black px-3 py-1 uppercase tracking-widest">
         Status: Online
     </div>
-    <div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
         <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-cyber-cyan to-cyber-pink rounded-full blur opacity-40 group-hover:opacity-100 transition duration-300"></div>
             <img src="{{ '/assets/in-profile.jpeg' | relative_url }}" alt="Boaz Foux" class="relative w-36 h-36 rounded-full object-cover border-2 border-cyber-cyan">
         </div>
         <div class="text-center md:text-left space-y-2">
-            <h1 class="font-orbitron text-4xl md:text-6xl font-black tracking-tight text-white uppercase italic">
+            <h1 class="font-orbitron text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-white uppercase italic">
                 Boaz <span class="text-cyber-cyan">Foux</span>
             </h1>
-            <p class="font-orbitron text-xl text-cyber-pink font-semibold uppercase tracking-wider">
+            <p class="font-orbitron text-base sm:text-xl text-cyber-pink font-semibold uppercase tracking-wide sm:tracking-wider">
                 Senior Software Engineer // Full-Stack &amp; Infrastructure
             </p>
             <p class="text-gray-400 text-base max-w-xl">
@@ -36,7 +36,7 @@ layout: default
 
 <section id="experience" class="space-y-8">
     <div class="border-b border-cyber-cyan/20 pb-4">
-        <h2 class="font-orbitron text-3xl font-extrabold text-cyber-cyan uppercase tracking-wider flex items-center gap-2">
+        <h2 class="font-orbitron text-2xl sm:text-3xl font-extrabold text-cyber-cyan uppercase tracking-wide sm:tracking-wider flex items-center gap-2">
             <span class="text-cyber-pink">//</span> 02. Work Experience
         </h2>
     </div>
@@ -84,8 +84,8 @@ layout: default
 
         <div class="space-y-3">
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> LivePerson
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Herzliya [2021 - 2022]</span>
@@ -97,8 +97,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Screenovate Technologies (Acquired by Intel)
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Ra'anana [2020 - 2021]</span>
@@ -110,8 +110,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Indoor Robotics
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2020]</span>
@@ -123,8 +123,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Anodot
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Remote [2020]</span>
@@ -135,8 +135,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Source Defense
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Rosh Haayin [2019 - 2020]</span>
@@ -147,8 +147,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> NEX
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2018 - 2019]</span>
@@ -159,8 +159,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Namogoo
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2018]</span>
@@ -172,8 +172,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> E8 Storage (Acquired by Amazon)
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Tel-Aviv [2016 - 2018]</span>
@@ -184,8 +184,8 @@ layout: default
             </details>
 
             <details class="group bg-black/80 border border-white/10 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
-                    <span class="font-orbitron font-bold text-cyber-cyan flex items-center gap-2">
+                <summary class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center p-4 cursor-pointer hover:bg-cyber-cyan/5 transition-colors">
+                            <span class="font-orbitron font-bold text-cyber-cyan flex items-start gap-2 min-w-0 text-left">
                         <span class="arrow-icon transition-transform font-mono text-xs">&gt;</span> Shellanoo Group
                     </span>
                     <span class="text-xs text-gray-400 font-mono">Herzliya [2016]</span>
@@ -262,7 +262,7 @@ layout: default
 </section>
 
 <section id="contact" class="bg-cyber-card border border-cyber-pink p-8 md:p-12 cyber-clip shadow-neon-pink text-center space-y-6">
-    <h2 class="font-orbitron text-3xl font-black text-cyber-cyan uppercase tracking-wider">
+    <h2 class="font-orbitron text-2xl sm:text-3xl font-black text-cyber-cyan uppercase tracking-wide sm:tracking-wider break-words">
         Initiate_Contact
     </h2>
     <p class="text-gray-300 max-w-lg mx-auto">

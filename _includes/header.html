@@ -3,7 +3,7 @@
         <a href="{{ "/" | relative_url }}" data-text="BOAZ_FOUX.SYS" class="glitch-link font-orbitron text-lg md:text-xl font-bold tracking-wider text-white flex items-center gap-2">
             <span class="text-cyber-cyan">&gt;</span> BOAZ_FOUX<span class="text-cyber-pink animate-pulse">.SYS</span>
         </a>
-        <ul class="flex space-x-6 font-orbitron text-sm uppercase tracking-widest">
+        <ul class="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-full font-orbitron text-xs sm:text-sm uppercase tracking-wide sm:tracking-widest">
             {% for item in site.data.navigation %}
             <li><a href="{{ item.link | relative_url }}" data-text="{{ item.name }}" class="glitch-link text-gray-400 hover:text-cyber-cyan transition-colors">{{ item.name }}</a></li>
             {% endfor %}
