@@ -1,13 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   {% include head.html %}
-  <body class="font-orbitron glitch">
+  <body class="font-rajdhani text-lg scanline min-h-screen flex flex-col justify-between selection:bg-cyber-pink selection:text-white">
     {% include header.html %}
-    <main class="container mx-auto px-6 py-8">
-      <div class="bg-slate-900 border border-cyan-400 p-8 shadow-[0_0_15px_rgba(0,255,255,0.5)]">
-        {{ content }}
-      </div>
+    <main class="container mx-auto px-4 md:px-6 py-12 max-w-5xl space-y-16">
+      {{ content }}
     </main>
     {% include footer.html %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const glitchLinks = document.querySelectorAll('.glitch-link');
+
+            function triggerRandomGlitch() {
+                if (glitchLinks.length === 0) return;
+
+                const randomLink = glitchLinks[Math.floor(Math.random() * glitchLinks.length)];
+                randomLink.classList.add('is-glitching');
+
+                setTimeout(() => {
+                    randomLink.classList.remove('is-glitching');
+                }, Math.random() * 220 + 280);
+
+                setTimeout(triggerRandomGlitch, Math.random() * 900 + 500);
+            }
+
+            triggerRandomGlitch();
+        });
+    </script>
   </body>
 </html>

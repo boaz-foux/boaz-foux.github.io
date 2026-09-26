@@ -1,10 +1,12 @@
 ---
 layout: default
 ---
-<article class="prose prose-invert lg:prose-xl max-w-none">
-  <h1>{{ page.title }}</h1>
-  <p class="text-gray-400">
+<article class="bg-cyber-card border border-cyber-cyan/30 p-8 cyber-clip shadow-neon-cyan space-y-4">
+  <h1 class="font-orbitron text-3xl font-bold text-cyber-cyan uppercase tracking-wider">{{ page.title }}</h1>
+  <p class="text-xs text-gray-400 font-mono">
     <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
   </p>
-  {{ content }}
+  <div class="text-gray-300 leading-relaxed space-y-4">
+    {{ content }}
+  </div>
 </article>

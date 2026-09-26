@@ -1,8 +1,10 @@
-- name: Home
-  link: /
-- name: About
-  link: /about.html
-- name: Contact
-  link: /contact.html
+- name: 01//Summary
+  link: /#summary
+- name: 02//Experience
+  link: /#experience
+- name: 03//Skills
+  link: /#skills
+- name: 04//Contact
+  link: /#contact
 # - name: Blog
 #   link: /blog/

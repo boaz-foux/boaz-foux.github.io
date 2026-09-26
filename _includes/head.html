@@ -4,18 +4,33 @@
     <title>{{ page.title | default: site.title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-          theme: {
-            extend: {
-              fontFamily: {
-                orbitron: ['Orbitron', 'sans-serif'],
-              },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            black: '#000000',
+                            card: '#121a2b',
+                            cyan: '#00f0ff',
+                            pink: '#ff007f',
+                            purple: '#a855f7',
+                            border: 'rgba(0, 240, 255, 0.2)'
+                        }
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 240, 255, 0.2)',
+                        'neon-pink': '0 0 15px rgba(255, 0, 127, 0.2)',
+                    }
+                }
             }
-          }
         }
-      </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    </script>
     <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
-  </head>
+</head>

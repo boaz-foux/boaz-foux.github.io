@@ -1,14 +1,14 @@
 $black: #000000;
-$white-smoke: #cacaca;
-$white: #e0e0e0;
+$white-smoke: #d1d5db;
+$white: #e5e7eb;
 $bright: #ffffff;
 
-$aqua: #00ffff;
-$bright-aqua: #8affff;
-$pink: #ff00ff;
-$bright-pink: #ff92ff;
-$background: #101010;
-$bright-background: #2d3748;
+$aqua: #00f0ff;
+$bright-aqua: #67f7ff;
+$pink: #ff007f;
+$bright-pink: #ff4da6;
+$background: #030509;
+$bright-background: #030509;
 
 @mixin basic-colors {
     --basic-black:#{$black};
@@ -46,11 +46,6 @@ body {
 }
 
 ::selection {
-    background-color: var(--basic-white, $white);
-    color: var(--basic-black, $black);
-}
-
-* {
-
-    transition: color .05s ease-in;
+    background-color: $pink;
+    color: $bright;
 }

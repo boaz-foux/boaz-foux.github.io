@@ -3,14 +3,16 @@ layout: default
 title: About
 ---
 
-<div class="text-center">
-    <img src="assets/in-profile.jpeg" alt="Boaz Foux" class="w-48 h-48 rounded-full mx-auto mb-4 border-4 border-cyan-400 shadow-[0_0_15px_rgba(0,255,255,0.8)]">
-    <h1 class="text-4xl font-bold text-cyan-400">Boaz Foux</h1>
-    <p class="text-lg text-gray-300">Software Developer at Wisedocs</p>
-</div>
-
-<div class="mt-8 text-gray-300">
-    <p>
+<section class="bg-cyber-card border border-cyber-cyan/30 p-8 md:p-12 cyber-clip shadow-neon-cyan text-center space-y-6">
+    <div class="relative group inline-block">
+        <div class="absolute -inset-1 bg-gradient-to-r from-cyber-cyan to-cyber-pink rounded-full blur opacity-40 group-hover:opacity-100 transition duration-300"></div>
+        <img src="{{ '/assets/in-profile.jpeg' | relative_url }}" alt="Boaz Foux" class="relative w-36 h-36 rounded-full object-cover border-2 border-cyber-cyan mx-auto">
+    </div>
+    <h1 class="font-orbitron text-4xl font-black tracking-tight text-white uppercase italic">
+        Boaz <span class="text-cyber-cyan">Foux</span>
+    </h1>
+    <p class="font-orbitron text-xl text-cyber-pink font-semibold uppercase tracking-wider">Software Developer</p>
+    <p class="text-gray-300 max-w-xl mx-auto">
         My name is Boaz Foux and I'm a software developer at Wisedocs. I'm passionate about building cool things and exploring new technologies.
     </p>
-</div>
+</section>

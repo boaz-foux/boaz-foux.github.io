@@ -1,14 +1,12 @@
-<header class="sticky top-0 z-10 diagonal-header">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <div>
-      <a href="{{ "/" | relative_url }}" class="text-2xl font-bold text-white">{{ site.title | default: "My Jekyll Site" }}</a>
-    </div>
-    <div>
-      <ul class="flex space-x-4">
-        {% for item in site.data.navigation %}
-          <li><a href="{{ item.link | relative_url }}" class="text-gray-300 hover:text-cyan-400 text-lg font-bold">{{ item.name }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-  </nav>
+<header class="sticky top-0 z-50 bg-cyber-card/95 backdrop-blur-md border-b border-cyber-cyan/20 shadow-neon-cyan">
+    <nav class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <a href="{{ "/" | relative_url }}" data-text="BOAZ_FOUX.SYS" class="glitch-link font-orbitron text-lg md:text-xl font-bold tracking-wider text-white flex items-center gap-2">
+            <span class="text-cyber-cyan">&gt;</span> BOAZ_FOUX<span class="text-cyber-pink animate-pulse">.SYS</span>
+        </a>
+        <ul class="flex space-x-6 font-orbitron text-sm uppercase tracking-widest">
+            {% for item in site.data.navigation %}
+            <li><a href="{{ item.link | relative_url }}" data-text="{{ item.name }}" class="glitch-link text-gray-400 hover:text-cyber-cyan transition-colors">{{ item.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
 </header>

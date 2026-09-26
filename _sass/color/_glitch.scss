@@ -1,261 +1,104 @@
-$animation-function: cubic-bezier(0.65, 0.02, 0, 1);
-
-@mixin distorted-text-mixin () {
-    $animation-duration: ceil((random() * 500) +1500);
-    $animation-pause: ceil(random() * 1500);
-    animation: distorted-text #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+.glitch-link {
+    position: relative;
+    display: inline-block;
+    transition: color 0.1s ease;
 }
 
-@mixin distorted-text-long-mixin () {
-    $animation-duration: ceil((random() * 500) +19500);
-    $animation-pause: ceil(random() * 10000);
-    animation: distorted-text-long #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+.glitch-link::before,
+.glitch-link::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
 }
 
-@mixin distorted-text-hover-mixin () {
-    $animation-duration: ceil((random() * 1000) +1000);
-
-    &:hover {
-        animation: distorted-full-noise 2000ms #{$animation-function} infinite;
-    }
+.glitch-link::before {
+    color: #00f0ff;
+    z-index: 1;
 }
 
-@mixin distorted-border-long-mixin () {
-    $animation-duration: ceil((random() * 500) +19500);
-    $animation-pause: ceil(random() * 10000);
-    animation: distorted-border-long #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+.glitch-link::after {
+    color: #ff007f;
+    z-index: 1;
 }
 
-@mixin distorted-border-mixin () {
-    $animation-duration: ceil((random() * 500) +1500);
-    $animation-pause: ceil(random() * 1500);
-    animation: distorted-border #{$animation-duration + ms} #{$animation-pause +ms} #{$animation-function} infinite;
+.glitch-link.is-glitching {
+    animation: glitch-text 0.2s infinite linear alternate-reverse;
 }
 
-@mixin distorted-border-hover-mixin () {
-    $animation-duration: ceil((random() * 1000) +1000);
-    $animation-pause: ceil(random() * 1500);
-
-    &:hover {
-        animation: distorted-border-full-noise 2000ms #{$animation-function} infinite;
-    }
+.glitch-link.is-glitching::before {
+    opacity: 1;
+    animation: glitch-anim-1 0.2s infinite linear alternate-reverse;
 }
 
-@mixin distorted-headers-mixin () {
-    @for $i from 1 to 5 {
-
-        &:is(h#{$i}),
-        h#{$i} {
-            @include distorted-text-long-mixin();
-        }
-    }
+.glitch-link.is-glitching::after {
+    opacity: 1;
+    animation: glitch-anim-2 0.2s infinite linear alternate-reverse;
 }
 
-@mixin distorted-img-mixin () {
-
-    &:is(img),
-    img {
-        @include distorted-border-long-mixin ();
-    }
-
+.glitch-link:hover::before {
+    opacity: 0.9;
+    animation: glitch-anim-1 0.25s infinite linear alternate-reverse;
 }
 
-@mixin distorted-glitch() {
-    @include distorted-headers-mixin ();
-    @include distorted-img-mixin ();
+.glitch-link:hover::after {
+    opacity: 0.9;
+    animation: glitch-anim-2 0.25s infinite linear alternate-reverse;
 }
 
-@keyframes distorted-border {
-    $steps: 60;
-    $noise: 5;
-    $distort: 16;
-
-    @for $i from 0 to $steps {
-        $percent: percentage($i/$steps);
-
-        #{$percent} {
-            @if ($percent < 11) or ($percent ==0) {
-                transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
-                text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-                box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-            }
-
-            @else {
-                transform: inherit;
-                text-shadow: inherit;
-                box-shadow: inherit;
-            }
-        }
-    }
+.glitch-link:active {
+    transform: scale(0.95) skewX(-10deg);
+    filter: drop-shadow(0 0 8px #ff007f);
 }
 
-@keyframes distorted-border-long {
-    $steps: 60;
-    $noise: 20;
-    $distort: 16;
-
-    @for $i from 0 to $steps {
-        $percent: percentage($i/($steps*20));
-
-        #{$percent} {
-            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
-            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-            box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-
-        }
-    }
-
-    5%,
-    6%,
-    100% {
-        transform: inherit;
-        text-shadow: inherit;
-        box-shadow: inherit;
-    }
+.glitch-link:active::before {
+    opacity: 1;
+    animation: glitch-hard-1 0.08s infinite linear;
 }
 
-
-@keyframes distorted-border-full-noise {
-    $steps: 60;
-    $noise: 40;
-    $distort: 20;
-
-    @for $i from 0 to $steps {
-        $percent: percentage($i/$steps);
-
-        #{$percent} {
-            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
-            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-            box-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-        }
-    }
+.glitch-link:active::after {
+    opacity: 1;
+    animation: glitch-hard-2 0.08s infinite linear;
 }
 
-@keyframes distorted-full-noise {
-    $steps: 60;
-    $noise: 40;
-    $distort: 20;
-
-    @for $i from 0 to $steps {
-        $percent: percentage($i/$steps);
-
-        #{$percent} {
-            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
-            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-            color: $bright;
-        }
-    }
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(10% 0 80% 0); transform: translate(-3px, 1px); }
+    20% { clip-path: inset(70% 0 10% 0); transform: translate(2px, -2px); }
+    40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+    60% { clip-path: inset(25% 0 60% 0); transform: translate(3px, 1px); }
+    80% { clip-path: inset(80% 0 5% 0); transform: translate(-1px, -2px); }
+    100% { clip-path: inset(15% 0 70% 0); transform: translate(2px, 1px); }
 }
 
-@keyframes distorted-text {
-    $steps: 60;
-    $noise: 20;
-    $distort: 16;
-
-    @for $i from 0 to $steps {
-        $percent: percentage($i/$steps);
-
-        #{$percent} {
-            @if ($percent < 11) or ($percent ==0) {
-                transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
-                text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-                color: $bright;
-            }
-
-            @else {
-                transform: inherit;
-                text-shadow: inherit;
-            }
-        }
-    }
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(60% 0 20% 0); transform: translate(3px, -1px); }
+    20% { clip-path: inset(15% 0 65% 0); transform: translate(-2px, 2px); }
+    40% { clip-path: inset(80% 0 10% 0); transform: translate(2px, -1px); }
+    60% { clip-path: inset(30% 0 40% 0); transform: translate(-3px, 1px); }
+    80% { clip-path: inset(5% 0 85% 0); transform: translate(1px, 2px); }
+    100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, -1px); }
 }
 
-@keyframes distorted-text-long {
-    $steps: 60;
-    $noise: 10;
-    $distort: 16;
-
-    @for $i from 0 to $steps {
-        $percent: percentage($i/($steps*20));
-
-        #{$percent} {
-            transform: skew((random($noise*2) - $noise) + deg, (random(2) - 1) + deg);
-            text-shadow: ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-aqua), ((random($distort*2) - $distort) +px) ((random($distort*2) - $distort) +px) 0 var(--basic-pink);
-            color: $bright;
-
-        }
-    }
-
-    5%,
-    6%,
-    100% {
-        transform: inherit;
-        text-shadow: inherit;
-    }
+@keyframes glitch-hard-1 {
+    0% { clip-path: inset(0% 0 90% 0); transform: translate(-6px, 3px); }
+    50% { clip-path: inset(50% 0 10% 0); transform: translate(6px, -3px); }
+    100% { clip-path: inset(20% 0 40% 0); transform: translate(-5px, 2px); }
 }
 
-
-a,
-button {
-
-    &,
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-        display: inline-block;
-        text-decoration: none;
-        outline: none;
-        color: var(--basic-bright);
-    }
+@keyframes glitch-text {
+    0% { text-shadow: -3px 0 #00f0ff, 3px 0 #ff007f; transform: translate(-1px, 0); }
+    25% { text-shadow: 2px 0 #00f0ff, -2px 0 #ff007f; transform: translate(1px, 1px); }
+    50% { text-shadow: -2px 1px #00f0ff, 2px -1px #ff007f; transform: translate(-2px, -1px); }
+    75% { text-shadow: 3px -1px #00f0ff, -3px 1px #ff007f; transform: translate(2px, 0); }
+    100% { text-shadow: -1px 0 #00f0ff, 1px 0 #ff007f; transform: translate(0, 1px); }
 }
 
-button {
-    background: transparent;
-    border-radius: 30px;
-    padding: 0.5rem;
-}
-
-* {
-    $nth: 7;
-
-    @for $n from 1 to $nth {
-        &:nth-child(#{$nth}n + #{$n}) * {
-            $deep_nth: 7;
-
-            @for $n from 1 to $deep_nth {
-                &:nth-child(#{$deep_nth}n + #{$n}) a {
-                    @include distorted-text-mixin();
-                    @include distorted-text-hover-mixin();
-                }
-
-                &:nth-child(#{$deep_nth}n + #{$n}) button {
-                    @include distorted-border-mixin();
-                    @include distorted-border-hover-mixin();
-                }
-            }
-        }
-    }
-}
-
-
-
-
-
-.glitch {
-    @include distorted-glitch ();
-    $nth: 7;
-
-    @for $n from 1 to $nth {
-        *:nth-child(#{$nth}n + #{$n}) {
-            @include distorted-glitch ();
-            $deep_nth: 7;
-
-            @for $n from 1 to $deep_nth {
-                *:nth-child(#{$deep_nth}n + #{$n}) {
-                    @include distorted-glitch ();
-                }
-            }
-        }
-    }
+@keyframes glitch-hard-2 {
+    0% { clip-path: inset(80% 0 0% 0); transform: translate(6px, -3px); }
+    50% { clip-path: inset(10% 0 60% 0); transform: translate(-6px, 3px); }
+    100% { clip-path: inset(40% 0 20% 0); transform: translate(5px, -2px); }
 }
